@@ -1,4 +1,32 @@
 
+
+
+
+
+function game(){   
+    
+    const buttons = document.querySelectorAll('button');
+    const selection = document.querySelector('.selection');
+    const result = document.querySelector('.result');
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            let computerSelection = computerPlay();
+            let playerSelection = button.innerText;
+            selection.innerText = "Your selection: " + playerSelection 
+            result.innerText = "" + String(playRound(playerSelection, computerSelection));
+
+        })
+    })
+    
+    
+
+}
+
+
+
+
+
 function computerPlay(){
     let options = ["rock", "paper", "scissors"]
     let index = Math.floor(Math.random() * 3);
@@ -37,10 +65,4 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-function game(){
-    for (i = 0; i < 5; i++){
-        let playerSelection = prompt("Please enter your move", "rock");
-        let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection))
-    }
-}
+
